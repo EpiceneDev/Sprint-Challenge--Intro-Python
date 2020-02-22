@@ -31,13 +31,13 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
     with open('cities.csv', 'rt') as f:
-      reader = csv.reader(f) 
+      reader = csv.reader(f, delimiter=',') 
       """ The following will skip the header """
       next(reader, None)
       """ Then the rest is added """
-      for row in reader:
-        cities.append(City(row[0], str(row[3]), str(row[4])))
-        return cities
+      for line in reader:
+        cities.append(City(line[0], float(line[3]), float(line[4])))
+      return cities
 
 cityreader(cities)
 
