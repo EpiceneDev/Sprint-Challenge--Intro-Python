@@ -12,10 +12,12 @@ class GroundVehicle():
         return "vroooom"
 
     def __repr__(self):
-        return "GroundVehicle('{}')".format(self.num_wheels)
+        # return "GroundVehicle('{}')".format(self.num_wheels)
+        return f"GroundVehicle('{self.num_wheels}')"
+
 
     def __str__(self):
-        return "{}".format(self.num_wheels)
+        return f"{self.num_wheels}"
 
 # Subclass Motorcycle from GroundVehicle.
 #
@@ -27,14 +29,14 @@ class GroundVehicle():
 # TODO
 
 class Motorcycle(GroundVehicle):
-    def __init__(num_wheels):
+    def __init__(self):
         super().__init__(num_wheels = 2)
 
     def drive(self):
         return "BRAAAP!!"
 
     def __str__(self):
-        return "{}|".format(self.num_wheels)
+        return f"{self.num_wheels}"
 
 vehicles = [
     GroundVehicle(),
