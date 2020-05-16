@@ -75,13 +75,36 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+map_area = input('Enter the latitude and longitude coordinates (lat, long) of the start and finish for establishing area to check: ')
+map_area = map.split(','
+)
+# take 2 coordinate locations that will create a square 
+# check the list to see if the city is within the square
+# return the list of cities within the square
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  lat1 = float(lat1)
+  lon1 = float(lon1)
+  lat2 = float(lat2)
+  lon2 = float(lon2)
+  
+  # if lat1 > lat2, lat1 = x0 and lon1 = y0 else lat1 = x1 and lon1 = y1
+  # 
   # within will hold the cities that fall within the specified region
   within = []
+  
+  # for city in cities:
+  #   if city.lat > x0 and city.lon < y0:
+      # if city.lat < x1 and city.lon > x2:
+      #   within.append(city)
 
   # TODO Ensure that the lat and lon valuse are all floats
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
 
   return within
+
+within_area = cityreader_stretch(map_area[0], map_area[1], map_area[2], map_area[3], cities)
+
+for city in within_area:
+  print(city.name) 
