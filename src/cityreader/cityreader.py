@@ -8,10 +8,10 @@ class City:
     self.lon = lon
 
   def __repr__(self):
-    return "City('{}', '{}', '{}')".format(self.name, self.lat, self.lon)
+    return f"City('{self.name}', '{self.lat}', '{self.lon}')"
 
   def __str__(self):
-    return "{}, {}, {}".format(self.name, self.lat, self.lon)
+    return f"{self.name}, {self.lat}, {self.lon}"
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -75,36 +75,36 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-map_area = input('Enter the latitude and longitude coordinates (lat, long) of the start and finish for establishing area to check: ')
-map_area = map.split(','
-)
-# take 2 coordinate locations that will create a square 
-# check the list to see if the city is within the square
-# return the list of cities within the square
+# map_area = input('Enter the latitude and longitude coordinates (lat, long) of the start and finish for establishing area to check: ')
+# map_area = map.split(','
+# )
+# # take 2 coordinate locations that will create a square 
+# # check the list to see if the city is within the square
+# # return the list of cities within the square
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  lat1 = float(lat1)
-  lon1 = float(lon1)
-  lat2 = float(lat2)
-  lon2 = float(lon2)
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+#   lat1 = float(lat1)
+#   lon1 = float(lon1)
+#   lat2 = float(lat2)
+#   lon2 = float(lon2)
   
-  # if lat1 > lat2, lat1 = x0 and lon1 = y0 else lat1 = x1 and lon1 = y1
-  # 
-  # within will hold the cities that fall within the specified region
-  within = []
+#   # if lat1 > lat2, lat1 = x0 and lon1 = y0 else lat1 = x1 and lon1 = y1
+#   # 
+#   # within will hold the cities that fall within the specified region
+#   within = []
   
-  # for city in cities:
-  #   if city.lat > x0 and city.lon < y0:
-      # if city.lat < x1 and city.lon > x2:
-      #   within.append(city)
+#   for city in cities:
+#     if city.lat > lat1 and city.lon < lon1:
+#       if city.lat < lat2 and city.lon > lon2:
+#         within.append(city)
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+#   # TODO Ensure that the lat and lon valuse are all floats
+#   # Go through each city and check to see if it falls within 
+#   # the specified coordinates.
 
-  return within
+#   return within
 
-within_area = cityreader_stretch(map_area[0], map_area[1], map_area[2], map_area[3], cities)
+# within_area = cityreader_stretch(map_area[0], map_area[1], map_area[2], map_area[3], cities)
 
-for city in within_area:
-  print(city.name) 
+# for city in within_area:
+#   print(city.name) 
