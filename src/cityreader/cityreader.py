@@ -75,36 +75,46 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-# map_area = input('Enter the latitude and longitude coordinates (lat, long) of the start and finish for establishing area to check: ')
-# map_area = map.split(','
-# )
+map_area = input('Enter the latitude and longitude coordinates (lat, long) of the start and finish for establishing area to check: ')
+# map_area = map.split(',')
 # # take 2 coordinate locations that will create a square 
 # # check the list to see if the city is within the square
 # # return the list of cities within the square
 
-# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+#   within will hold the cities that fall within the specified region
+  within = []
+
+  # TODO Ensure that the lat and lon valuse are all floats
+  # Go through each city and check to see if it falls within 
+  # the specified coordinates.
+
 #   lat1 = float(lat1)
 #   lon1 = float(lon1)
 #   lat2 = float(lat2)
 #   lon2 = float(lon2)
   
-#   # if lat1 > lat2, lat1 = x0 and lon1 = y0 else lat1 = x1 and lon1 = y1
-#   # 
-#   # within will hold the cities that fall within the specified region
-#   within = []
+  if lat1 < lat2:
+
+    x0 = lat1 
+    y0 = lon1
+    x1 = lat2
+    y1 = lon2
+  else:
+    x0 = lat2 
+    y0 = lon2
+    x1 = lat1
+    y1 = lon1
+
   
-#   for city in cities:
-#     if city.lat > lat1 and city.lon < lon1:
-#       if city.lat < lat2 and city.lon > lon2:
-#         within.append(city)
+  for city in cities:
+    if city.lat >= x0 and city.lat <= x1 and city.lon >= y0 and city.lon <= y1:
+      within.append(city)
 
-#   # TODO Ensure that the lat and lon valuse are all floats
-#   # Go through each city and check to see if it falls within 
-#   # the specified coordinates.
 
-#   return within
+  return within
 
-# within_area = cityreader_stretch(map_area[0], map_area[1], map_area[2], map_area[3], cities)
+within_area = cityreader_stretch(map_area[0], map_area[1], map_area[2], map_area[3], cities)
 
-# for city in within_area:
-#   print(city.name) 
+for city in within_area:
+  print(city.name) 
